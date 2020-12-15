@@ -1,0 +1,22 @@
+/* Typography */
+
+/* _Font Family*/
+body {
+  font-family: $open;
+  color: $shark;
+}
+
+h1,
+h2 {
+  font-family: $caveat;
+  color: $mako;
+}
+
+/* _Font Size*/
+h1 {
+  font-size: $font-xl;
+}
+
+h2 {
+  font-size: $font-lg;
+}
