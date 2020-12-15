@@ -1,29 +1,45 @@
 <template>
-  <article class="productcard">
-    <v-card :loading="loading">
-      <v-img
-        height="250"
-        src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-      ></v-img>
-      <v-card-title>
-        {{ data.title }}
-      </v-card-title>
-      <v-card-text>{{ data.text }}</v-card-text>
-    </v-card>
-  </article>
+  <v-hover>
+    <template v-slot:default="{ hover }">
+      <v-card
+        class="articlecard rounded-lg"
+        :class="`elevation-${hover ? 20 : 8}`"
+        :loading="loading"
+      >
+        <a :href="data.url">
+          <v-img
+            class="articlecard__image rounded-tl-lg rounded-tr-lg"
+            :src="data.image"
+          ></v-img>
+          <v-card-title class="articlecard__title">
+            {{ data.title }}
+          </v-card-title>
+          <v-card-text class="articlecard__content">{{
+            data.content
+          }}</v-card-text>
+        </a>
+      </v-card>
+    </template>
+  </v-hover>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      hover: false
+    };
   },
 
   props: {
     loading: Boolean,
     data: Object
+  },
+
+  methods: {
+    handleClick() {
+      this.$router.push(this.data.url);
+    }
   }
 };
 </script>
-
-<style></style>

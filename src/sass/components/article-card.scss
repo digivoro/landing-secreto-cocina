@@ -1,0 +1,21 @@
+.articlecard {
+  transition: all 0.2s ease-out;
+
+  &__title {
+    font-weight: $bold;
+    color: $mako;
+    word-break: keep-all;
+  }
+
+  &__image {
+    height: 200px;
+  }
+
+  &__content {
+    color: $mako;
+  }
+
+  &:hover {
+    transform: scale(1.05, 1.05) translate(0, -5px);
+  }
+}

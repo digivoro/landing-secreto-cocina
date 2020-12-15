@@ -1,24 +1,52 @@
 <template>
-  <form class="contactform">
+  <form class="contactform" @submit.prevent="handleSubmit">
     <v-container>
-      <v-row class="d-flex">
-        <v-col cols="12" md="6">
-          <label for="firstname">NOMBRE</label>
-          <input type="text" id="firstname" name="firstname" />
+      <v-row>
+        <v-col class="form-input" cols="12" md="6">
+          <label class="form-input__label" for="firstname">NOMBRE</label>
+          <input
+            class="form-input__field"
+            v-model="formInfo.firstname"
+            type="text"
+            id="firstname"
+            name="firstname"
+          />
         </v-col>
+
         <v-col cols="12" md="6">
-          <label for="lastname">APELLIDO</label>
-          <input type="text" id="lastname" name="lastname" />
+          <label class="form-input__label" for="lastname">APELLIDO</label>
+          <input
+            class="form-input__field"
+            v-model="formInfo.lastname"
+            type="text"
+            id="lastname"
+            name="lastname"
+          />
         </v-col>
+
         <v-col cols="12" md="6">
-          <label for="email">EMAIL</label>
-          <input type="email" id="email" name="email" />
+          <label class="form-input__label" for="email">EMAIL</label>
+          <input
+            class="form-input__field"
+            v-model="formInfo.email"
+            type="email"
+            id="email"
+            name="email"
+          />
         </v-col>
+
         <v-col cols="12" md="6">
-          <label for="phone">TELÉFONO</label>
-          <input type="tel" id="phone" name="phone" />
+          <label class="form-input__label" for="phone">TELÉFONO</label>
+          <input
+            class="form-input__field"
+            v-model="formInfo.phone"
+            type="tel"
+            id="phone"
+            name="phone"
+          />
         </v-col>
-        <v-col>
+
+        <v-col cols="12" class="text-right">
           <button type="send">ENVIAR</button>
         </v-col>
       </v-row>
@@ -27,24 +55,26 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      formInfo: {
+        firstname: null,
+        lastname: null,
+        email: null,
+        phone: null
+      }
+    };
+  },
+
+  methods: {
+    ...mapActions(["newsletterSubscribe"]),
+
+    handleSubmit() {
+      this.newsletterSubscribe(this.formInfo);
+    }
+  }
+};
 </script>
-
-<style>
-label {
-  display: block;
-}
-input {
-  height: 3rem;
-  width: 100%;
-  border: 2px solid #aaa;
-}
-
-button {
-  height: 3rem;
-  width: 10rem;
-  border-radius: 1.5rem;
-  background-color: #d8ad3d;
-  color: white;
-}
-</style>

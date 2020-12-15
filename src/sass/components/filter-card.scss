@@ -1,0 +1,15 @@
+.filtercard {
+  padding: 1rem 0;
+
+  .selected {
+    color: $anzak;
+  }
+
+  &__title {
+    padding: 0 0 0 1rem;
+  }
+
+  &__icon {
+    padding: 0 1rem 0 0;
+  }
+}

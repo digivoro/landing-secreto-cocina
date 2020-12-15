@@ -1,0 +1,22 @@
+.form-input {
+  &__label {
+    display: block;
+    font-weight: 900;
+    font-size: $font-xs;
+    margin-bottom: 1rem;
+  }
+
+  &__field {
+    height: 3rem;
+    width: 100%;
+    border: 2px solid #dddddd;
+    padding: 0 1.5rem;
+
+    &:focus {
+      outline: none;
+      border-width: 3px;
+      border-color: $anzak;
+      border-radius: 0;
+    }
+  }
+}
