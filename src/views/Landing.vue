@@ -8,7 +8,12 @@
         </a>
         <SocialIcons />
       </header>
-      <h1>El secreto de tu cocina</h1>
+      <h1 class="hero__title">El secreto de tu cocina</h1>
+      <img
+        class="hero__shape"
+        src="../assets/hero-shape.png"
+        alt="Hero Shape"
+      />
     </section>
 
     <!-- Articles Section -->
@@ -114,9 +119,24 @@ export default {
     justify-content: space-between;
   }
 
-  h1 {
+  .hero__title {
     width: 45%;
     margin-bottom: 6rem;
+    background: url();
+    background-position: right;
+    background-position-y: 90%;
+    background-clip: unset;
+    background-repeat: no-repeat;
+    line-height: 6rem;
+    z-index: 10;
+  }
+
+  .hero__shape {
+    position: relative;
+    bottom: 35%;
+    right: 30%;
+    width: 80%;
+    z-index: 1;
   }
 }
 
